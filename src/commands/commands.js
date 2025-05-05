@@ -1,11 +1,13 @@
 import up from "./up.js"
 import cd from "./cd.js"
 import ls from "./ls.js"
+import cat from "./cat.js"
 
 const commands = {
     "up": up,
     "cd": cd,
-    "ls": ls
+    "ls": ls,
+    "cat": cat
 }
 
 const getCommand = (name) => {
