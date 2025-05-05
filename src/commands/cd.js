@@ -1,15 +1,13 @@
-import path from "node:path"
-import { chdir, cwd } from "node:process"
+import { chdir } from "node:process"
+import { getPath } from "../utils.js";
 
 const validate = (args) => {
     return args.length === 1;
 }
 
 const execute = async (args) => {
-    const curDir = cwd()
-    const targetDir = args[0]
-    const targetPath = path.isAbsolute(targetDir) ? targetDir : path.relative(curDir, targetDir);
-    chdir(targetPath)
+    const dirPath = getPath(args[0])
+    chdir(dirPath)
 }
 
 export default {validate, execute}
