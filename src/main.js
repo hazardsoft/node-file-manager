@@ -38,7 +38,7 @@ const handleCommand = async (commandLine) => {
         return;
     }
     try {
-        await command.execute()
+        await command.execute(args)
     } catch (e) {
         console.log("Operation failed")
     }
