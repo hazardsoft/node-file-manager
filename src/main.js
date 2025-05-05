@@ -31,7 +31,7 @@ rl.on('close', () => {
 
 const handleCommand = async (commandLine) => {
     const name = getCommandName(commandLine);
-    const args = getCommandArgs(commandLine);
+    const args = getCommandArgs(commandLine, name);
     const command = getCommand(name);
     if (!command || !command.validate(args)) {
         console.log("Invalid input")

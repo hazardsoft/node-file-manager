@@ -4,6 +4,7 @@ import ls from "./ls.js"
 import cat from "./cat.js"
 import add from "./add.js"
 import mkdir from "./mkdir.js"
+import rn from "./rn.js"
 
 const commands = {
     "up": up,
@@ -11,7 +12,8 @@ const commands = {
     "ls": ls,
     "cat": cat,
     "add": add,
-    "mkdir": mkdir
+    "mkdir": mkdir,
+    "rn": rn
 }
 
 const getCommand = (name) => {
@@ -22,8 +24,9 @@ const getCommandName = (commandLine) => {
     return commandLine.includes(" ") ? commandLine.split(" ")[0] : commandLine;
 }
 
-const getCommandArgs = (commandLine) => {
-    return commandLine.includes(" ") ? commandLine.split(" ")[1].split(" ") : [];
+const getCommandArgs = (commandLine, commandName) => {
+    if (commandLine === commandName) return []
+    return commandLine.slice(commandName.length + 1).split(" ")
 }
 
 export {getCommand, getCommandName, getCommandArgs};
