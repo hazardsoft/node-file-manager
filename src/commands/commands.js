@@ -8,6 +8,7 @@ import rn from "./rn.js"
 import copy from "./copy.js"
 import mv from "./mv.js"
 import rm from "./rm.js"
+import os from "./os.js"
 
 const commands = {
     "up": up,
@@ -19,7 +20,8 @@ const commands = {
     "rn": rn,
     "copy": copy,
     "mv": mv,
-    "rm": rm
+    "rm": rm,
+    "os": os
 }
 
 const getCommand = (name) => {
