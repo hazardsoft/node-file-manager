@@ -11,6 +11,7 @@ import rm from "./rm.js"
 import os from "./os.js"
 import hash from "./hash.js"
 import compress from "./compress.js"
+import decompress from "./decompress.js"
 
 const commands = {
     "up": up,
@@ -25,7 +26,8 @@ const commands = {
     "rm": rm,
     "os": os,
     "hash": hash,
-    "compress": compress
+    "compress": compress,
+    "decompress": decompress
 }
 
 const getCommand = (name) => {
