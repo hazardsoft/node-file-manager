@@ -6,6 +6,7 @@ import add from "./add.js"
 import mkdir from "./mkdir.js"
 import rn from "./rn.js"
 import copy from "./copy.js"
+import mv from "./mv.js"
 
 const commands = {
     "up": up,
@@ -15,7 +16,8 @@ const commands = {
     "add": add,
     "mkdir": mkdir,
     "rn": rn,
-    "copy": copy
+    "copy": copy,
+    "mv": mv
 }
 
 const getCommand = (name) => {
