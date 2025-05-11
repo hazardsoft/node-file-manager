@@ -14,6 +14,7 @@ console.log(`Welcome to the File Manager, ${username}!`)
 const rl = readline.createInterface({ input: stdin, output: stdout });
 chdir(homedir())
 printCurrentWorkingDir()
+rl.prompt();
 
 rl.on('line', async (line) => {
     const command = line.trim();
@@ -24,6 +25,7 @@ rl.on('line', async (line) => {
             await handleCommand(command)
             printCurrentWorkingDir()
     }
+    rl.prompt();
 });
 rl.on('close', () => {
     console.log(`Thank you for using File Manager, ${username}, goodbye!`)
