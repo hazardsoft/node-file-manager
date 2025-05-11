@@ -1,4 +1,4 @@
-import { createReadStream } from "node:fs";
+import { createReadStream, read } from "node:fs";
 import { pipeline } from "node:stream/promises";
 import { getPath } from "../utils.js";
 
@@ -7,9 +7,16 @@ const validate = (args) => {
 }
 
 const execute = async (args) => {
-    const filePath = getPath(args[0])
-    const readable = createReadStream(filePath);
-    await pipeline(readable, process.stdout)
+    return new Promise(resolve => {
+        const filePath = getPath(args[0])
+        const readable = createReadStream(filePath);
+        readable.pipe(process.stdout);
+        readable.on('end', () => {
+            process.stdout.write('\n');
+            readable.close();
+            resolve();
+        })
+    })
 }
 
 export default {validate, execute}
