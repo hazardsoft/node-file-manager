@@ -21,7 +21,7 @@ const commands = {
     "add": add,
     "mkdir": mkdir,
     "rn": rn,
-    "copy": copy,
+    "cp": copy,
     "mv": mv,
     "rm": rm,
     "os": os,
