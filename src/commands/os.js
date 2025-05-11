@@ -10,7 +10,7 @@ const execute = async (args) => {
     const command = args[0].replace("--", "")
     switch (command) {
         case "EOL":
-            console.log(os.EOL);
+            console.log(JSON.stringify(os.EOL));
             break;
         case "cpus":
             const cpus = os.cpus()
