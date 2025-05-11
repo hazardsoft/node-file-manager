@@ -1,7 +1,7 @@
 import { createReadStream, createWriteStream } from "node:fs";
 import { getPath } from "../utils.js";
 import { pipeline } from "node:stream/promises";
-import { createGzip } from "node:zlib";
+import { createBrotliCompress } from "node:zlib";
 
 const validate = (args) => {
     return args.length === 2;
@@ -15,7 +15,7 @@ const execute = async (args) => {
     const output = createWriteStream(destFilePath);
      await pipeline(
         input,
-        createGzip(),
+        createBrotliCompress(),
         output
     )
 }
