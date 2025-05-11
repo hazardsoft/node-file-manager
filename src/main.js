@@ -20,7 +20,7 @@ rl.on('line', async (line) => {
     const command = line.trim();
     switch (command) {
         case ".exit":
-            process.exit()
+            exitApplication()
         default:
             await handleCommand(command)
             printCurrentWorkingDir()
@@ -28,8 +28,17 @@ rl.on('line', async (line) => {
     rl.prompt();
 });
 rl.on('close', () => {
-    console.log(`Thank you for using File Manager, ${username}, goodbye!`)
+    exitApplication()
 })
+rl.on('SIGINT', () => {
+    exitApplication()
+})
+
+const exitApplication = () => {
+    console.log(`Thank you for using File Manager, ${username}, goodbye!`)
+    process.exit()
+}
+
 
 const handleCommand = async (commandLine) => {
     const name = getCommandName(commandLine);
